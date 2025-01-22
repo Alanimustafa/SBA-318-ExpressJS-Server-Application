@@ -43,7 +43,7 @@ app.route("/students")
         const studentsHtml = students.map(student => `
             <div>
                 <h3 style="color:orange">${student.name}</h3>
-                <p style="color:wheat">Phone: ${student.id}</p>
+                <p style="color:wheat">ID : ${student.id}</p>
                 <p style="color:wheat">Phone: ${student.phone}</p>
                 <p style="color:wheat">Email: ${student.email}</p>
                 <br>
@@ -95,7 +95,7 @@ app.route('/students/:id')
             next();
         }
     })
-    // Updating the user data
+    // Updating the user data using the id number in the url 
     .patch((req,res,next) => {
         const student = students.find((student,index) => {
             if (student.id == req.params.id) {
@@ -104,13 +104,25 @@ app.route('/students/:id')
                 }
                 return true
             }
-        }) ;
+        });
         if (student) {
             res.json(student);
         } else {
             next();
         }
     })
+    // Deleting a student
+    .delete((req, res, next) => {
+        const student = students.find((student, index) => {
+          if (student.id == req.params.id) {
+            students.splice(index, 1); // splicing from the arrayy.
+            return true;
+          }
+        });
+    
+        if (student) res.json(student);
+        else next();
+      });
 
 
 
