@@ -24,20 +24,18 @@ const assistants = require ('./data/assistants');
 app.get ('/', (req, res) => {
     res.send(`
         <h1>Class Contact</h1>
-        `)
-})
-
-//------------------ Middleware --------------------------
+        `);
+});
 
 
 
-
-
-
-
-
-
-
+// (404) Error Middleware { error: "Resource Not Found" }
+app.use((req, res) => {
+    res.status(404);
+    res.send(`
+        <h2 style="color:red">Error: 400 Page Not Found</h2>
+        `);
+  });
 
 
 //--------------- Starting the Server --------------------
