@@ -32,13 +32,9 @@ app.get ('/', (req, res) => {
 });
 
 
-//Students Routes
+//---------------------------- Students Routes
 
 //Students main route
-// app.get("/students", (req,res) => {
-//     res.json(students);
-// });
-
 app.route("/students")
     // GET the Students Database
     .get((req,res) => {
@@ -89,8 +85,16 @@ app.route("/students")
         }
         else res.send(`<h3 style="color:darkred">ERROR: Incorrect Data</h3>`);
     })
-
-
+// Student Routes Using Route Params
+app.route('/students/:id')
+    .get((req,res, next) => {
+        const student = students.find((student)=> student.id == req.params.id);
+        if (student) {
+            res.json(student);
+        } else {
+            next();
+        }
+    })
 
 
 
