@@ -14,8 +14,7 @@ Each database consists of three members. Each member has the following data:
 
 Routes
 ``````
-A. Home (/home).
-B. Contacts (/contacts)
+A. Home (/).
     - Students (/students)
     - Instructors (/Instructors)
     - Assistants (/assistants)
@@ -25,9 +24,18 @@ B. Contacts (/contacts)
 
 FOR TEST:
 `````````
-JSON objects
-```````````
+Below some JSON objects ready to copy and paste for POST requests
+
 New student:
     "name" : "Mustafa Alani",
     "phone" : "1232345",
     "email" : "mustafa@sba.sba"
+
+
+HOW IT WORKS
+````````````
+For GET:
+    - main (/)
+    - By parameter (ex:  /student/1)
+For Delete : use the id number at the end of the url of the selected category.
+for Patch: use the id number at the end of the url of the selected category and pass the desired JSON object.
