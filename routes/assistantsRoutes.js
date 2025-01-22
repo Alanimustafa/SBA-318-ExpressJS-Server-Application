@@ -30,14 +30,18 @@ assistantsRouter.route("/")
         res.send(`
             <html>
                 <head>
-                    <link rel="stylesheet" href="./public/style.css"/> 
+                    <title>SBA-318-Contact List</title>
                 </head>
-                <body style="background-color:#333f3c">
-                    <h1 style="color:yellow; text-decoration:underline">Assistants List</h1>
+                <body style="background-color:#333f3c;">
+                    <h1 style="color:yellow">ASSISTANTS LIST</h1>
+                    <a style="color:orange" href="http://localhost:3000/students/">Students  |</a>
+                    <a style="color:orange" href="http://localhost:3000/instructors/">  Instructors  |</a>
+                    <a style="color:orange" href="http://localhost:3000/assistants/">Assistants</a>  <br> <a style="color:orange" href="http://localhost:3000/">Back</a>
                     ${assistantsHtml}
                 </body>
             </html>
-        `);
+    
+            `);        
         
     })
     // POST in the Assistats Database

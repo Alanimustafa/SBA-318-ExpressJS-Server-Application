@@ -30,7 +30,18 @@ app.use('/assistants', assistantsRouter); // App using the assistants router
 // Home Route
 app.get ('/', (req, res) => {
     res.send(`
-        <h1>Class Contact</h1>
+        <html>
+            <head>
+                <title>SBA-318-Contact List</title>
+            </head>
+            <body style="background-color:#333f3c;">
+                <h1 style="color:yellow">Class Contact</h1>
+                <a style="color:orange" href="http://localhost:3000/students/">Students  |</a>
+                <a style="color:orange" href="http://localhost:3000/instructors/">  Instructors  |</a>
+                <a style="color:orange" href="http://localhost:3000/assistants/">Assistants</a>
+            </body>
+        </html>
+
         `);
 });
 
