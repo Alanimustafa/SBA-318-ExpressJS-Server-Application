@@ -95,6 +95,22 @@ app.route('/students/:id')
             next();
         }
     })
+    // Updating the user data
+    .patch((req,res,next) => {
+        const student = students.find((student,index) => {
+            if (student.id == req.params.id) {
+                for (const key in req.body) {
+                    students[index][key] = req.body[key];
+                }
+                return true
+            }
+        }) ;
+        if (student) {
+            res.json(student);
+        } else {
+            next();
+        }
+    })
 
 
 
