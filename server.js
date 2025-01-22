@@ -13,23 +13,21 @@ const PORT = 3000;
 const bodyParser = require("body-parser");
 
 // Importing data from databases
-const studentsRouter = require ('./routes/studentsroute.js');
-const instructorsRouter = require ('./routes/instructorRoutes.js');
-const assistantsRouter = require ('./routes/assistantsRoutes.js');
+const studentsRouter = require ('./routes/studentsroute.js'); // Importing the students router.
+const instructorsRouter = require ('./routes/instructorRoutes.js'); // Importing the instructors router.
+const assistantsRouter = require ('./routes/assistantsRoutes.js'); // Importing the assistants router.
 
 // Using the Body-Parser Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: true }));
 
 // using the routes
-app.use('/students', studentsRouter);
-app.use('/instructors', instructorsRouter);
-app.use('/assistants', assistantsRouter);
+app.use('/students', studentsRouter); // App using the students router
+app.use('/instructors', instructorsRouter); // App using the instructors router
+app.use('/assistants', assistantsRouter); // App using the assistants router
 
 
-//--------------- Routes ------------------------------
-
-// Home Page
+// Home Route
 app.get ('/', (req, res) => {
     res.send(`
         <h1>Class Contact</h1>
