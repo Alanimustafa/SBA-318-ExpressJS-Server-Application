@@ -9,13 +9,17 @@ const app = express();
 // Initializing Server PORT
 const PORT = 3000;
 
-// Parsing the data
+// Import the body-parser package for data parsing.
 const bodyParser = require("body-parser");
 
 // Importing data from databases
 const students = require ('./data/students');
 const instructors = require ('./data/instructors');
 const assistants = require ('./data/assistants');
+
+// Using the Body-Parser Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ extended: true }));
 
 
 //--------------- Routes ------------------------------
@@ -27,6 +31,10 @@ app.get ('/', (req, res) => {
         `);
 });
 
+//Students Routes
+app.get("/students", (req,res) => {
+    res.json(students);
+});
 
 
 // (404) Error Middleware { error: "Resource Not Found" }
