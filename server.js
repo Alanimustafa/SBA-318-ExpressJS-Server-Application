@@ -15,7 +15,7 @@ const bodyParser = require("body-parser");
 // Importing data from databases
 const studentsRouter = require ('./routes/studentsroute.js');
 const instructorsRouter = require ('./routes/instructorRoutes.js');
-// const assistants = require ('./data/assistants');
+const assistantsRouter = require ('./routes/assistantsRoutes.js');
 
 // Using the Body-Parser Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,6 +24,7 @@ app.use(bodyParser.json({ extended: true }));
 // using the routes
 app.use('/students', studentsRouter);
 app.use('/instructors', instructorsRouter);
+app.use('/assistants', assistantsRouter);
 
 
 //--------------- Routes ------------------------------
