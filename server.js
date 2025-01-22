@@ -33,10 +33,40 @@ app.get ('/', (req, res) => {
 
 
 //Students Routes
+
+//Students main route
+// app.get("/students", (req,res) => {
+//     res.json(students);
+// });
+
 app.route("/students")
     // GET the Students Database
     .get((req,res) => {
-        res.json(students)
+        // res.json(students)
+        // Looping through the students database.
+        const studentsHtml = students.map(student => `
+            <div>
+                <h3 style="color:orange">${student.name}</h3>
+                <p style="color:wheat">Phone: ${student.id}</p>
+                <p style="color:wheat">Phone: ${student.phone}</p>
+                <p style="color:wheat">Email: ${student.email}</p>
+                <br>
+            </div>
+        `).join(""); // Join the array of HTML strings into one string
+
+        // Send the generated HTML as the response
+        res.send(`
+            <html>
+                <head>
+                    <link rel="stylesheet" href="./public/style.css"/> 
+                </head>
+                <body style="background-color:#333f3c">
+                    <h1 style="color:yellow; text-decoration:underline">Student List</h1>
+                    ${studentsHtml}
+                </body>
+            </html>
+        `);
+        
     })
     // POST in the Students Database
     .post((req,res) => {
@@ -57,14 +87,11 @@ app.route("/students")
             students.push(student); // Adding the new student object to the students array.
             res.json(students[students.length - 1]); // Returning a JSON response with the new student information.
         }
-        else res.send(`<h3 style="color:darred">ERROR: Incorrect Data</h3>`);
+        else res.send(`<h3 style="color:darkred">ERROR: Incorrect Data</h3>`);
     })
 
 
-//Students Routes
-app.get("/students", (req,res) => {
-    res.json(students);
-});
+
 
 
 // (404) Error Middleware { error: "Resource Not Found" }
