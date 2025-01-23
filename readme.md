@@ -28,10 +28,14 @@ FOR TEST:
 `````````
 Below some JSON objects ready to copy and paste for POST requests
 
-New student:
+New student: (copy then paste)
+
+{
     "name" : "Mustafa Alani",
     "phone" : "1232345",
     "email" : "mustafa@sba.sba"
+}
+
 
 
 HOW IT WORKS
